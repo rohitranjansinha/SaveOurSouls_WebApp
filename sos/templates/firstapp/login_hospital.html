@@ -1,0 +1,433 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ hospital.username }}</title>
+    <link rel="icon" type="image/jpg" href="{% static 'firstapp/images/logo_img.png' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+    <style media="screen">
+
+
+        #frm1{
+          text-align: center;
+          padding-top: 50px;
+        }
+
+        .value-button {
+          display: inline-block;
+          border: 1px solid #ddd;
+          margin: 0px;
+          width: 40px;
+          height: 40px;
+          text-align: center;
+          vertical-align: middle;
+          padding: 0;
+          background: #eee;
+          -webkit-touch-callout: none;
+          -webkit-user-select: none;
+          -khtml-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
+
+        .value-button:hover {
+          cursor: pointer;
+        }
+
+        form #decrease {
+          margin-right: -4px;
+          border-radius: 8px 0 0 8px;
+        }
+
+        form #increase {
+          margin-left: -4px;
+          border-radius: 0 8px 8px 0;
+        }
+
+        form #input-wrap {
+          margin: 0px;
+          padding: 0px;
+        }
+
+        input#number1 {
+          text-align: center;
+          border: none;
+          border-top: 1px solid #ddd;
+          border-bottom: 1px solid #ddd;
+          margin: 0px;
+          width: 40px;
+          height: 40px;
+        }
+        input#number2 {
+          text-align: center;
+          border: none;
+          border-top: 1px solid #ddd;
+          border-bottom: 1px solid #ddd;
+          margin: 0px;
+          width: 40px;
+          height: 40px;
+        }
+        input#number3 {
+          text-align: center;
+          border: none;
+          border-top: 1px solid #ddd;
+          border-bottom: 1px solid #ddd;
+          margin: 0px;
+          width: 40px;
+          height: 40px;
+        }
+        input#number4 {
+          text-align: center;
+          border: none;
+          border-top: 1px solid #ddd;
+          border-bottom: 1px solid #ddd;
+          margin: 0px;
+          width: 40px;
+          height: 40px;
+        }
+        input#number5{
+          text-align: center;
+          border: none;
+          border-top: 1px solid #ddd;
+          border-bottom: 1px solid #ddd;
+          margin: 0px;
+          width: 40px;
+          height: 40px;
+        }
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+
+
+
+
+</head>
+
+<body>
+
+                                            <!-- Navbar -->
+
+    <div>
+<nav>
+    <div class="nav-wrapper white">
+    <!--  <a href="{% static 'firstapp/images/logo.png' %}" class="brand-logo">Logo</a>-->
+        <img src="{% static 'firstapp/images/small_logo.jpg' %}" alt="logo" style="height:100%; width:30%;">
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/about/" class="orange-text text-darken-2">About</a></li>
+        <li><a href="/faq/"  class="orange-text text-darken-2">FAQ</a></li>
+        <li><a href="/contact/" class="orange-text text-darken-2">Contact Us</a></li>
+          <li><a href="/logout/" class="orange-text text-darken-2">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+
+
+                                            <!-- Tabs -->
+
+<div>
+
+<ul id="tabs-swipe-demo" class="tabs teal lighten-2">
+
+        <div style="float:left; margin-left:20%;">
+    <li class="tab col s12 l6"><a href="#test-swipe-1"><font color="black">Profile</font></a></li>
+        </div>
+    <div style="float:right; margin-right:20%;">
+    <li class="tab col s12 l6"><a class="active" href="#test-swipe-2"><font color="black">Status Update</font></a></li>
+    </div>
+</ul>
+
+</div>
+
+                                        <!-- Profile Tab -->
+
+
+    <div id="test-swipe-1" class="col s12" style="margin-top:-2%;;background: url({% static 'firstapp/images/login_hospital_profile_img.jpg' %});">
+  		<br><br>
+        <div style="margin-left:15%;">
+    <font size="16" style="padding-top:3%;" color="white">Location: </font>
+    <div>
+        <form method="post" action="/hospital_location/">
+            {% csrf_token %}
+        <input name="loc" style="margin-left:18%;width:40%;margin-right:2%;margin-top:-4.9%;position:absolute;"  type="text" value="" width="30%;" id="location">
+            <div>
+                    <a class="waves-effect waves-light btn " style="margin-left:72%;margin-top:-10%;width:45px;padding-left:12px;"  onclick="getLocation()"><i class="material-icons left">add_location</i></a>
+            <input class="waves-effect waves-light btn" type="submit" style="float:right; margin-right:16%; margin-top:-5.5%;" value="SUBMIT"/>
+            </div>
+        </form>
+    </div>
+
+</div>
+            <p>
+                <br>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <br><br><br><br><br><br><br><br><br>
+
+  			</p>
+
+  		<div style="width: 42%;height: 110%; margin-left: 6%;margin-top: -42%;margin-bottom: 3%; background-color: #f2f2f2;
+		float: left;border-radius: 6px;	opacity: 0.7;padding-left:2.5%;padding-right: 2.5%;padding-bottom: 2.5%;position: relative;">
+		<form action="/profile/" method="post" style="font-size: 20px;" id="Link2">
+            {% csrf_token %}
+			<center>
+				<legend style="font-family: cursive;font-size: 32px;"><center>Ward Details</center></legend>
+			</center>
+			Emergency Ward :<input type="text" name="emergency" placeholder="0" required="" value="{{ ward.emer_w }}">
+
+			Cardiology Ward :
+			<input type="text" name="cardio" placeholder="0" required="" value="{{ ward.cardio_w }}">
+
+			Neurology Ward :
+			<input type="text" name="neuro" placeholder="0" required="" value="{{ ward.neuro_w }}">
+
+			Orthopaedic Ward :
+			<input type="text" name="ortho" placeholder="0" required="" value="{{ ward.ortho_w }}">
+
+			General Ward :
+			<input type="text" name="general" placeholder="0" required="" value="{{ ward.gen_w }}"><br>
+
+
+			<center>
+				<button class="btn waves-effect waves-light" type="submit" name="action" id="Link">Submit
+				</button>
+			</center>
+
+		</form>
+	</div>
+
+
+	<div style="width: 42%;height: 110%; margin-right: 6%;margin-top: -42%;margin-bottom: 3%; background-color: #f1f1f1;
+		float: right;border-radius: 6px;	opacity: 0.7;padding-left:2.5%;padding-right: 2.5%;padding-bottom: 2.5%;">
+		<form action="/opd/" method="post" style="font-size: 20px;">
+            {% csrf_token %}
+			<center>
+				<legend style="font-family: cursive;font-size: 32px;"><center>OPD Timings</center></legend>
+			</center>
+
+			Cardiological OPD :<br>
+			<div style="width: 45%;float: left;">
+			<input type="text" name="cardio1" placeholder="0" required=""  value="{{ opd.cardio_t1 }}">
+			</div>
+			<div style="width: 45%;float: right;margin-right: 2.5%;">
+			<input type="text" name="cardio2" placeholder="0" required="" value="{{ opd.cardio_t2 }}">
+			</div>
+
+
+			Neurological OPD:<br>
+			<div style="width: 45%;float: left;">
+			<input type="text" name="neuro1" placeholder="0" required="" value="{{ opd.neuro_t1 }}">
+			</div>
+			<div style="width: 45%;float: right;margin-right: 2.5%;">
+			<input type="text" name="neuro2" placeholder="0" required="" value="{{ opd.neuro_t2 }}">
+			</div>
+
+			Orthopaedic OPD :<br>
+			<div style="width: 45%;float: left;">
+			<input type="text" name="ortho1" placeholder="0" required="" value="{{ opd.ortho_t1 }}">
+			</div>
+			<div style="width: 45%;float: right;margin-right: 2.5%;">
+			<input type="text" name="ortho2" placeholder="0" required="" value="{{ opd.ortho_t2 }}">
+			</div>
+
+			Dentist OPD :<br>
+			<div style="width: 45%;float: left;">
+			<input type="text" name="dent1" placeholder="0" required="" value="{{ opd.dent_t1 }}">
+			</div>
+			<div style="width: 45%;float: right;margin-right: 2.5%;">
+			<input type="text" name="dent2" placeholder="0" required="" value="{{ opd.dent_t2 }}">
+			</div>
+
+			General Physician :<br>
+			<div style="width: 45%;float: left;">
+			<input type="text" name="gen1" placeholder="0" required="" value="{{ opd.gen_t1 }}">
+			</div>
+			<div style="width: 45%;float: right;margin-right: 2.5%;">
+			<input type="text" name="gen2" placeholder="0" required="" value="{{ opd.gen_t2 }}">
+			</div>
+
+			<br><br>
+			<center>
+				<button class="btn waves-effect waves-light" type="submit" name="action" id="Link">Submit
+				</button>
+			</center>
+		</form>
+	</div>
+
+
+
+  </div>
+
+
+
+                                        <!-- Satuts Update Tab -->
+
+
+    <div id="test-swipe-2" class="col s12 red" style="margin-top:0%;padding-top:5%;padding-bottom:10%;background: url({% static 'firstapp/images/login_hospital_profile_img.jpg' %});">
+        <div style="width: 42%;height: 110%; background-color: #f1f1f1;
+                border-radius: 6px;	opacity: 0.7;padding-left:5%;padding-right: 2.5%;padding-bottom: 2.5%; margin-left:29%">
+                <form action="/update/" method="post" style="font-size: 20px;">
+                    {% csrf_token %}
+                    <center>
+                        <legend style="font-family: cursive;font-size: 32px;"><center>Available Beds</center></legend>
+                    </center>
+                    <br>
+                    <font style="padding-right:15%;"><b>Emergency Ward : </b></font>
+                <div class="value-button" id="decrease" onclick="decreaseValue1()" value="Decrease Value"><b>-</b></div>
+                 <input type="number" id="number1" value="{{ ward.emer_w }}" name="emer" />
+                <div class="value-button" id="increase" onclick="increaseValue1()" value="Increase Value"><b>+</b></div>
+
+
+                <br><br>
+                <font style="padding-right:11%;"><b>Cardiological Ward : </b></font>
+                <div class="value-button" id="decrease" onclick="decreaseValue2()" value="Decrease Value"><b>-</b></div>
+                 <input type="number" id="number2" value="{{ ward.cardio_w }}" name="cardio" />
+                <div class="value-button" id="increase" onclick="increaseValue2()" value="Increase Value"><b>+</b></div>
+
+                <br><br>
+                    <font style="padding-right:12%;"><b>Neurological Ward : </b></font>
+                    <div class="value-button" id="decrease" onclick="decreaseValue3()" value="Decrease Value"><b>-</b></div>
+                 <input type="number" id="number3" value="{{ ward.neuro_w }}" name="neuro" />
+                <div class="value-button" id="increase" onclick="increaseValue3()" value="Increase Value"><b>+</b></div>
+
+                <br><br>
+                <font style="padding-right:12%;"><b>Orthopaedic Ward : </b></font>
+                <div class="value-button" id="decrease" onclick="decreaseValue4()" value="Decrease Value"><b>-</b></div>
+                 <input type="number" id="number4" value="{{ ward.ortho_w }}" name="ortho"/>
+                <div class="value-button" id="increase" onclick="increaseValue4()" value="Increase Value"><b>+</b></div>
+
+                <br><br>
+                <font style="padding-right:21%;"><b>General Ward : </b></font>
+                <div class="value-button" id="decrease" onclick="decreaseValue5()" value="Decrease Value"><b>-</b></div>
+                 <input type="number" id="number5" value="{{ ward.gen_w }}" name="gen" />
+                <div class="value-button" id="increase" onclick="increaseValue5()" value="Increase Value"><b>+</b></div>
+
+
+                    <br><br>
+                    <center>
+                        <button class="btn waves-effect waves-light" type="submit" name="action" id="Link">Submit
+                        </button>
+                    </center>
+                </form>
+            </div>
+
+
+
+            </div>
+
+
+
+
+  </div>
+
+
+
+                                            <!-- Script -->
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function(){
+        $('.tabs').tabs();
+      });
+
+      function increaseValue1() {
+    var value = parseInt(document.getElementById('number1').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value++;
+    document.getElementById('number1').value = value;
+    }
+    function increaseValue2() {
+  var value = parseInt(document.getElementById('number2').value, 10);
+  value = isNaN(value) ? 0 : value;
+  value++;
+  document.getElementById('number2').value = value;
+  }
+  function increaseValue3() {
+var value = parseInt(document.getElementById('number3').value, 10);
+value = isNaN(value) ? 0 : value;
+value++;
+document.getElementById('number3').value = value;
+}
+function increaseValue4() {
+var value = parseInt(document.getElementById('number4').value, 10);
+value = isNaN(value) ? 0 : value;
+value++;
+document.getElementById('number4').value = value;
+}
+function increaseValue5() {
+var value = parseInt(document.getElementById('number5').value, 10);
+value = isNaN(value) ? 0 : value;
+value++;
+document.getElementById('number5').value = value;
+}
+
+    function decreaseValue1() {
+    var value = parseInt(document.getElementById('number1').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value < 1 ? value = 1 : '';
+    value--;
+    document.getElementById('number1').value = value;
+    }
+    function decreaseValue2() {
+    var value = parseInt(document.getElementById('number2').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value < 1 ? value = 1 : '';
+    value--;
+    document.getElementById('number2').value = value;
+    }
+    function decreaseValue3() {
+    var value = parseInt(document.getElementById('number3').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value < 1 ? value = 1 : '';
+    value--;
+    document.getElementById('number3').value = value;
+    }
+    function decreaseValue4() {
+    var value = parseInt(document.getElementById('number4').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value < 1 ? value = 1 : '';
+    value--;
+    document.getElementById('number4').value = value;
+    }
+    function decreaseValue5() {
+    var value = parseInt(document.getElementById('number5').value, 10);
+    value = isNaN(value) ? 0 : value;
+    value < 1 ? value = 1 : '';
+    value--;
+    document.getElementById('number5').value = value;
+    }
+
+
+    var x = document.getElementById("location");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.value = position.coords.latitude +
+  "," + position.coords.longitude;
+}
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+  <html>
+<title>Contact</title>
+    <head>
+        <link rel="icon" type="image/jpg" href="{% static 'firstapp/images/logo_img.png' %}">
+      <!--Import Google Icon Font-->
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body background="{% static 'firstapp/images/about_bg.jpg' %}">
+<h1 align="center" style="color:white; font-family: Comic Sans MS">OUR TEAM</h1>
+<div class="row s6">
+      <div class="col s4">
+  <div class="row">
+    <div class="col s12">
+      <div class="card">
+        <div class="card-image">
+          <img src="{% static 'firstapp/images/rohit.jpg' %}">
+          <span class="card-title"></span>
+        </div>
+        <div class="card-content">
+		<h3 align="center" style="font-family:Georgia;" >Rohit Ranjan Sinha</h3>
+          <p><font style="font-family: Comic Sans MS;" size="3">
+            Rohit is the man behind this project, like literally 'behind', because
+            he is the one who helped the team with all backstage work of the project, also
+            provided his helpful hand with the front-end tasks whenever the team demanded it.
+          </font>
+          </p>
+        </div>
+        <div class="card-action">
+          <a href="https://www.linkedin.com/in/rohitranjansinha/" target="_blank" align="center">LinkedIN</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+	  </div>
+      <div class="col s4">
+	 <div class="row">
+    <div class="col s12">
+      <div class="card">
+        <div class="card-image">
+          <img src="{% static 'firstapp/images/satyam.jpg' %}">
+          <span class="card-title"></span>
+        </div>
+        <div class="card-content">
+		<h3 align="center" style="font-family:Georgia;">Satyam Sihare</h3>
+          <p>
+            <font size="3" style="font-family:Comic Sans MS">
+              Satyam worked the most crucial feature of the project,that is finding the location,
+              finding appropriate api, and requesting it to find the driving distance and time.
+              He also helped the team in making some static html pages.
+            </font>
+          </p>
+        </div>
+        <div class="card-action">
+          <a href="https://in.linkedin.com/in/satyam-sihare-5173a9165" target="_blank" align="center" >LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+	  </div>
+	  <div class="col s4">
+		 <div class="row">
+    <div class="col s12">
+      <div class="card">
+        <div class="card-image">
+          <img src="{% static 'firstapp/images/vasu.png' %}">
+          <span class="card-title"></span>
+        </div>
+        <div class="card-content">
+		<h3 align="center" style="font-family:Georgia;">Vasu Agrawal</h3>
+          <p>
+            <font size="3" style="font-family:Comic Sans MS;">
+              Vasu is the one who made this project look as it looks now,
+              he handled all the tasks related to HTML, CSS and JS. Yes that's
+              quite a work, he was helped by Rohit & Satyam.
+              He also contributed in making the tables and providing the sample data.
+            </font>
+          </p>
+        </div>
+        <div class="card-action">
+          <a href="https://www.linkedin.com/in/vasu-agrawal-64153b170/" target="_blank" align="center" >LinkedIN</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+	  </div>
+    </div>
+      <!--JavaScript at end of body for optimized loading-->
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+    </body>
+  </html>

@@ -1,0 +1,54 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<title>About</title>
+    <head>
+        <link rel="icon" type="image/jpg" href="{% static 'firstapp/images/logo_img.png' %}">
+      <!--Import Google Icon Font-->
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+<body  background="{% static 'firstapp/images/abs1.png' %}"  onload="myFunction()">
+<center><img src="https://fontmeme.com/permalink/190424/9fdb7e9a5ddb79ca30f3291f887d1444.png"></center>
+
+<div id="myDiv">
+<ul id="myUL">
+  <li>
+      <font style="color:yellow" face="monospace" size="10"><b>There was an Idea!</b></font>
+      <p style="color:white"><font size="6">The idea behind this project is to help the people to locate the nearest hospital which can provide
+                the needed healthcare service and is quickest to reach.</font></p>
+  </li>
+  <br><br>
+  <li>
+      <font style="color:yellow" face="monospace" size="10"><b>To bring together remarkable people..</b></font>
+      <p style="color:white"><font size="6">This project helped us to help us to develop and build upon
+                our team spirit and help us to learn working together towards achieving a common goal.<br>
+                For details about team : <a href="/about/" target="_blank">TEAM</a></font></p>
+  </li>
+    <br><br>
+    <li>
+      <font style="color:yellow" face="monospace" size="10"><b>To see if we can make something more..</b></font>
+      <p style="color:white"><font size="6">1> Provide the entire route to hospital based on current traffic detection.
+            <br>
+            2> Provide the feature for patients to book an appointment at the desired hospital.
+            <br>
+        3> Reminder and Suggestions for health checkups based on medical history of patients.</font></p>
+  </li>
+    <br><br>
+
+ </div>
+  <script>
+function myFunction() {
+  document.getElementById("myUL").style.listStyleImage = "url('images/BCLOG1.png')";
+  document.getElementById("myDiv").style.paddingLeft = "100px";
+  document.getElementById("myDiv").style.paddingRight = "100px";
+}
+</script>
+</body>
+</html>
