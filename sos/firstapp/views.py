@@ -261,6 +261,7 @@ def main_view(request):
         print('len=',len(final_list))
 
         loc = Hospital_Location.objects.filter(username=final_list[-1].username_hospital)
+        print('loc = ',loc)
         final_list[-1].location = loc[0].hospital_lat+','+loc[0].hospital_lon
         hname = Hospital_Base.objects.filter(username=final_list[-1].username_hospital)
         final_list[-1].name = hname[0].hospital_name
